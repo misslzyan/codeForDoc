@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dwd</groupId>
+    <artifactId>codeForDoc</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <!--<version>1.0.3</version>-->
+ 
+    <properties>
+        <vertx.version>3.3.3</vertx.version>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <spring.version>4.3.6.RELEASE</spring.version>
+        <jackson-version>2.8.3</jackson-version>
+        <data-center-version>0.0.1-SNAPSHOT</data-center-version>
+
+        <netty-version>4.1.6.Final</netty-version>
+        <!--<smart-io-version>0.0.1-SNAPSHOT</smart-io-version>-->
+
+        <!--<smart-io-version>0.0.1-SNAPSHOT</smart-io-version>-->
+        <druid-version>0.9.1.1</druid-version>
+
+    </properties>
+   
+    <!--<properties>
+        <data.center.version>0.0.4</data.center.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.netease.ad</groupId>
+                <artifactId>data-center-domain</artifactId>
+                <version>${data.center.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netease.ad</groupId>
+                <artifactId>smart.io</artifactId>
+                <version>0.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netease.ad</groupId>
+                <artifactId>data-center-util</artifactId>
+                <version>${data.center.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netease.ad</groupId>
+                <artifactId>data-center-dao</artifactId>
+                <version>${data.center.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netease.ad</groupId>
+                <artifactId>data-center-param</artifactId>
+                <version>${data.center.version}</version>
+            </dependency><dependency>
+            <groupId>com.netease.ad</groupId>
+            <artifactId>data-center-rank</artifactId>
+            <version>${data.center.version}</version>
+        </dependency><dependency>
+            <groupId>com.netease.ad</groupId>
+            <artifactId>data-center-service</artifactId>
+            <version>${data.center.version}</version>
+        </dependency>
+
+        </dependencies>
+    </dependencyManagement>-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- explicitly define maven-deploy-plugin after other to force exec order -->
+                <artifactId>maven-deploy-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>hz_repo</id>
+            <name>hz_repo-snapshots</name>
+            <url>http://mvn.hz.netease.com/artifactory/libs-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+     <!--<distributionManagement>
+         <repository>
+             <id>repo</id>
+             <name>repo-releases</name>
+             <url>http://mvn.hz.netease.com/artifactory/libs-releases</url>
+         </repository>
+     </distributionManagement>-->
+
+</project>
