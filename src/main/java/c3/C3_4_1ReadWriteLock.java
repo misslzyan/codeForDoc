@@ -41,6 +41,10 @@ public class C3_4_1ReadWriteLock {
      * @return
      */
     private boolean canGrantReadAccess(Thread callingThread) {
+        //当前线程已经获取到了写锁，可以直接获取读锁
+        if(isWriter(callingThread)){
+            return true;
+        }
         //如果有进行写操作的线程，获取不了
         if(writers>0)return false;
         //当前读线程，可以读
