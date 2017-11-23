@@ -8,7 +8,7 @@
 *.ipr
 *.idea
 *.iml
-*.pdf
+#*.pdf
 *.html
 *.tmp
 ~$*
